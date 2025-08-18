@@ -107,15 +107,6 @@ This steganography tool implements what we like to call "military-grade" securit
 - **Password attacks**: Brute force simulation
 - **Data corruption**: Integrity verification
 
-## REPORTING SECURITY ISSUES
-
-If you discover a security vulnerability, please:
-
-1. **Do NOT** create a public issue
-2. Email security concerns to: [lquhung2012@gmail.com] 
-3. Include detailed reproduction steps (help me help you)
-4. Allow 3 days for responsible disclosure
-
 ## Security Updates
 
 - **Regular updates**: Monitor for cryptographic library updates
