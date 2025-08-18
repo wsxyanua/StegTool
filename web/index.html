@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steganography v1.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar Toggle -->
+    <button id="sidebarToggle" class="sidebar-toggle" onclick="toggleSidebar()">?</button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <button class="sidebar-close" onclick="toggleSidebar()">&times;</button>
+
+            <h3>QUICK GUIDE</h3>
+
+            <div class="guide-section">
+                <h4>HIDE MESSAGE</h4>
+                <ol>
+                    <li>Select HIDE tab</li>
+                    <li>Upload any image format (JPG/PNG/GIF/WebP/SVG)</li>
+                    <li>Auto-convert to PNG/BMP/TIFF if needed</li>
+                    <li>Enter secret message</li>
+                    <li>Choose method: LSB/DCT/DWT</li>
+                    <li>Optional: Set password</li>
+                    <li>Click HIDE MESSAGE</li>
+                </ol>
+            </div>
+
+            <div class="guide-section">
+                <h4>EXTRACT MESSAGE</h4>
+                <ol>
+                    <li>Select EXTRACT tab</li>
+                    <li>Upload image with hidden message</li>
+                    <li>Choose same method used for hiding</li>
+                    <li>Enter password if used</li>
+                    <li>Click EXTRACT MESSAGE</li>
+                </ol>
+            </div>
+
+            <div class="guide-section">
+                <h4>FORMAT SUPPORT</h4>
+                <ul>
+                    <li><strong>Input:</strong> JPG, JPEG, PNG, GIF, WebP, SVG</li>
+                    <li><strong>Output:</strong> PNG, BMP, TIFF</li>
+                    <li><strong>Auto-convert:</strong> Unsupported formats → PNG</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <h4>METHODS EXPLAINED</h4>
+                <ul>
+                    <li><strong>LSB:</strong> Standard method, good capacity</li>
+                    <li><strong>DCT:</strong> Frequency domain, more robust</li>
+                    <li><strong>DWT:</strong> Wavelet domain, advanced hiding</li>
+                </ul>
+            </div>
+
+            <div class="guide-section">
+                <h4>TIPS</h4>
+                <ul>
+                    <li>PNG recommended for best results</li>
+                    <li>Larger images = longer messages</li>
+                    <li>Remember your passwords</li>
+                    <li>Keep original images safe</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div id="loadingText" class="loading-text">PROCESSING</div>
+        <div class="loading-progress">
+            <div id="loadingProgressBar" class="loading-progress-bar"></div>
+        </div>
+        <div id="loadingSteps" class="loading-steps">Initializing...</div>
+    </div>
+
+    <!-- Skeleton Loading -->
+    <div id="skeletonContainer" class="skeleton-container">
+        <div class="container">
+            <header>
+                <div class="skeleton skeleton-header"></div>
+                <div class="skeleton skeleton-text short"></div>
+            </header>
+
+            <main>
+                <div class="skeleton skeleton-input" style="height: 50px; margin-bottom: 20px;"></div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; flex: 1;">
+                    <div class="skeleton-section">
+                        <div class="skeleton skeleton-header"></div>
+                        <div class="skeleton skeleton-file-area"></div>
+                    </div>
+
+                    <div class="skeleton-section">
+                        <div class="skeleton skeleton-header"></div>
+                        <div class="skeleton skeleton-input"></div>
+                        <div class="skeleton skeleton-input"></div>
+                    </div>
+
+                    <div class="skeleton-section">
+                        <div class="skeleton skeleton-header"></div>
+                        <div class="skeleton skeleton-textarea"></div>
+                    </div>
+
+                    <div class="skeleton-section">
+                        <div class="skeleton skeleton-header"></div>
+                        <div class="skeleton skeleton-text long"></div>
+                        <div class="skeleton skeleton-text medium"></div>
+                        <div class="skeleton skeleton-text short"></div>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+                    <div class="skeleton skeleton-button"></div>
+                    <div class="skeleton skeleton-button"></div>
+                </div>
+            </main>
+
+            <footer>
+                <div class="skeleton skeleton-text medium"></div>
+            </footer>
+        </div>
+    </div>
+
+    <div id="mainContainer" class="container" style="display: none;">
+        <header>
+            <h1>STEGANOGRAPHY</h1>
+            <p>v1.0</p>
+        </header>
+
+        <main>
+            <div class="tabs">
+                <button class="tab-button active" onclick="showTab('encode', this)">HIDE</button>
+                <button class="tab-button" onclick="showTab('decode', this)">EXTRACT</button>
+            </div>
+
+            <!-- Encode Tab -->
+            <div id="encode" class="tab-content active">
+                <div class="left-panel">
+                    <div class="section file-section">
+                        <h3>FILE INPUT</h3>
+                        <div class="file-input-container">
+                            <input type="file" id="encodeFile" accept="image/*" onchange="handleFileUpload(this, 'encode')">
+                            <label for="encodeFile" class="file-input-label">
+                                SELECT FILE
+                            </label>
+                        </div>
+                        <div id="encodePreview" class="file-preview"></div>
+                        <div id="encodeCapacity" class="capacity-info"></div>
+                        
+                        <!-- Format Conversion Section -->
+                        <div id="formatConversion" class="format-conversion" style="display: none;">
+                            <h4>FORMAT CONVERSION</h4>
+                            <div class="conversion-info">
+                                <span id="originalFormat"></span> → 
+                                <select id="targetFormat">
+                                    <option value="PNG">PNG (Recommended)</option>
+                                    <option value="BMP">BMP</option>
+                                    <option value="TIFF">TIFF</option>
+                                </select>
+                            </div>
+                            <div class="conversion-actions">
+                                <button id="convertButton" onclick="convertImageFormat()" class="convert-button">
+                                    CONVERT FORMAT
+                                </button>
+                                <div id="conversionProgress" class="conversion-progress" style="display: none;">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <span>Converting...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="section message-section">
+                        <h3>SECRET MESSAGE</h3>
+                        <textarea id="messageText" placeholder="Enter secret message..." rows="6"></textarea>
+                        <div class="char-count">
+                            <span id="charCount">0</span> / <span id="maxChars">0</span>
+                        </div>
+                    </div>
+
+                    <div class="controls-row">
+                        <div class="method-tabs">
+                            <label class="method-tab active"><input type="radio" name="stegoMethod" value="lsb" checked> LSB</label>
+                            <label class="method-tab"><input type="radio" name="stegoMethod" value="dct"> DCT</label>
+                            <label class="method-tab"><input type="radio" name="stegoMethod" value="dwt"> DWT</label>
+                        </div>
+                        <button id="encodeButton" onclick="encodeMessage()" class="hide-button" disabled>
+                            HIDE
+                        </button>
+                    </div>
+
+                    <div class="password-row">
+                        <div class="password-container">
+                            <input type="password" id="encodePassword" placeholder="Password (optional)">
+                            <button type="button" onclick="togglePasswordVisibility('encodePassword')" class="password-toggle">SHOW</button>
+                        </div>
+                        <div id="passwordStrength" class="strength-meter">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text">NO PASSWORD</span>
+                        </div>
+                    </div>
+
+                    <button id="encodeDownloadBtn" onclick="downloadEncodedImage()" class="secondary-button" style="display: none;" disabled>
+                        DOWNLOAD IMAGE
+                    </button>
+                    <div id="encodeProgress" class="progress-container" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">PROCESSING</div>
+                    </div>
+                    <div id="encodeFakeLoading" class="fake-loading-container" style="display: none;">
+                        <div class="fake-loading-text">processing...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decode Tab -->
+            <div id="decode" class="tab-content">
+                <div class="left-panel">
+                    <div class="section file-section">
+                        <h3>FILE INPUT</h3>
+                        <div class="file-input-container">
+                            <input type="file" id="decodeFile" accept="image/*" onchange="handleFileUpload(this, 'decode')">
+                            <label for="decodeFile" class="file-input-label">
+                                SELECT FILE
+                            </label>
+                        </div>
+                        <div id="decodePreview" class="file-preview"></div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="section message-section">
+                        <h3>EXTRACTED MESSAGE</h3>
+                        <textarea id="resultText" placeholder="Message will appear here..." rows="6" readonly></textarea>
+                        <div class="result-actions">
+                            <button onclick="copyToClipboard()" class="secondary-button">COPY</button>
+                            <button onclick="downloadText()" class="secondary-button">DOWNLOAD</button>
+                        </div>
+                    </div>
+
+                    <div class="controls-row">
+                        <div class="method-tabs">
+                            <label class="method-tab active"><input type="radio" name="decodeMethod" value="lsb" checked> LSB</label>
+                            <label class="method-tab"><input type="radio" name="decodeMethod" value="dct"> DCT</label>
+                            <label class="method-tab"><input type="radio" name="decodeMethod" value="dwt"> DWT</label>
+                        </div>
+                        <button id="decodeButton" onclick="decodeMessage()" class="hide-button" disabled>
+                            EXTRACT
+                        </button>
+                    </div>
+
+                    <div class="password-row">
+                        <div class="password-container">
+                            <input type="password" id="decodePassword" placeholder="Password (if protected)">
+                            <button type="button" onclick="togglePasswordVisibility('decodePassword')" class="password-toggle">SHOW</button>
+                        </div>
+                    </div>
+
+                    <div id="decodeProgress" class="progress-container" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">PROCESSING</div>
+                    </div>
+                    <div id="decodeFakeLoading" class="fake-loading-container" style="display: none;">
+                        <div class="fake-loading-text">processing...</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+
+        <footer>
+            <div class="status-bar">
+                <span id="statusText">Use at your own risk...</span>
+                <span id="fileInfo"></span>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-section">
+                    <a href="https://github.com/hugle2012/steganography-tool#readme" target="_blank" rel="noopener">README</a>
+                    <a href="https://github.com/hugle2012/steganography-tool/blob/main/USERGUIDE.md" target="_blank" rel="noopener">USER GUIDE</a>
+                    <a href="https://github.com/hugle2012/steganography-tool/blob/main/SECURITY.md" target="_blank" rel="noopener">SECURITY</a>
+                </div>
+                <div class="footer-trademark">
+                    <span>&copy; 2025 STEGANOGRAPHY</span>
+                    <span>PROFESSIONAL PRIVACY(or not) TOOLS</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+
+    <!-- Toast notifications -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ImageConverter Script -->
+    <script src="converter.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
