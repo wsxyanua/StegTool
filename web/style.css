@@ -269,7 +269,6 @@ header {
     text-align: center;
     margin-bottom: 20px;
     position: relative;
-    border-bottom: 2px solid var(--border);
     padding-bottom: 15px;
     flex-shrink: 0;
 }
@@ -381,9 +380,6 @@ main {
 .tab-content {
     display: none;
     padding: 20px;
-    border: 2px solid var(--border);
-    background: var(--section-bg);
-    backdrop-filter: blur(5px);
     flex: 1;
     overflow: hidden;
     min-height: 0;
@@ -411,10 +407,7 @@ main {
 
 /* SECTIONS */
 .section {
-    border: 2px solid var(--border);
     padding: 15px;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(1px);
     display: flex;
     flex-direction: column;
     min-height: 0;
@@ -425,7 +418,6 @@ main {
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 10px;
-    border-bottom: 1px solid var(--border);
     padding-bottom: 5px;
     flex-shrink: 0;
 }
@@ -517,8 +509,6 @@ main {
     gap: 15px;
     align-items: flex-start;
     padding: 10px;
-    border: 2px solid var(--border);
-    background: rgba(0, 0, 0, 0.1);
 }
 
 .password-row .password-container {
@@ -639,10 +629,8 @@ main {
 .capacity-info {
     margin-top: 10px;
     padding: 8px;
-    border: 1px solid var(--border);
     font-size: 0.8rem;
     letter-spacing: 0.5px;
-    background: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -856,7 +844,6 @@ textarea:focus, input[type="password"]:focus, input[type="text"]:focus {
 /* FULL-SCREEN FOOTER */
 footer {
     margin-top: 20px;
-    border-top: 2px solid var(--border);
     padding-top: 15px;
     flex-shrink: 0;
 }
@@ -1397,10 +1384,7 @@ footer {
 .format-conversion {
     margin-top: 15px;
     padding: 15px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid var(--border);
     border-radius: 0;
-    backdrop-filter: blur(10px);
 }
 
 .format-conversion h4 {
