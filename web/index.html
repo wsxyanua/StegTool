@@ -140,9 +140,12 @@
 
         <main>
             <div class="tabs">
-                <button class="tab-button active" onclick="showTab('encode', this)">HIDE</button>
-                <button class="tab-button" onclick="showTab('decode', this)">EXTRACT</button>
+                <div class="subtab">
+                    <button class="tab-button active" onclick="showTab('encode', this)">HIDE</button>
+                    <button class="tab-button" onclick="showTab('decode', this)">EXTRACT</button>
+                </div>
             </div>
+                
 
             <!-- Encode Tab -->
             <div id="encode" class="tab-content active">

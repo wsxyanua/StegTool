@@ -321,9 +321,20 @@ main {
 /* FULL-SCREEN TABS */
 .tabs {
     display: flex;
-    border: 2px solid var(--border);
+    /* border: 2px solid var(--border); */
     margin-bottom: 20px;
     flex-shrink: 0;
+}
+
+.subtab {
+    margin-left: 35px;
+    display: flex;
+    gap: 0;
+}
+
+.subtab button {
+    width: 100px;
+    
 }
 
 .tab-button {
@@ -1542,5 +1553,13 @@ footer {
     .convert-button {
         padding: 8px 12px;
         font-size: 0.8rem;
+    }
+
+    .subtab {
+        margin-left: 25px;
+    }
+
+    .subtab button {
+        width: 50px;
     }
 }
