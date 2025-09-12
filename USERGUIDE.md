@@ -1,203 +1,195 @@
-# STEGANOGRAPHY v1.0 - USER GUIDE
+# STEGANOGRAPHY v1.0 — HƯỚNG DẪN SỬ DỤNG
 
-## OVERVIEW
+## TỔNG QUAN
 
-Steganography v1.0 is a tool for hiding secret messages inside images because apparently regular encryption wasn't sneaky enough. Available as both web application and desktop software for maximum convenience and paranoia levels.
+Steganography v1.0 là một công cụ để giấu thông điệp bí mật vào ảnh, dành cho khi mã hóa thông thường có vẻ chưa đủ trình. Ứng dụng có cả bản web và phần mềm desktop để tiện dùng ở nhiều tình huống.
 
-## WEB APPLICATION
+## ỨNG DỤNG WEB
 
-### GETTING STARTED
+### BẮT ĐẦU
 
-1. Open `web/index.html` in your browser
-2. Choose between HIDE or EXTRACT tabs
-3. Select steganography method: LSB for beginners, DCT/DWT for show-offs
+1. Mở `web/index.html` bằng trình duyệt.
+2. Chọn tab HIDE (Giấu) hoặc EXTRACT tabs (Trích xuất).
+3. Chọn phương pháp steganography: LSB cho người mới, DCT/DWT cho người muốn nâng cao.
 
-### HIDING MESSAGES
+### GIẤU THÔNG ĐIỆP
 
-1. **Select File**: Click to select PNG/BMP/TIFF image
-2. **Enter Message**: Type your secret message in the text area
-3. **Set Password**: Optional encryption password for security
-4. **Choose Method**: 
-   - LSB: Standard method, good capacity
-   - DCT: Frequency domain, more robust
-   - DWT: Wavelet domain, advanced hiding
-5. **Generate Signature**: Optional digital signature for authenticity
-6. **Hide Message**: Click to process and download result
+1. **Chọn file**: Bấm để chọn ảnh PNG/BMP/TIFF.
+2. **Nhập thông điệp**: Gõ nội dung bí mật vào ô văn bản.
+3. **Đặt mật khẩu**: Tùy chọn — nếu muốn mã hóa trước khi giấu.
+4. **Chọn phương pháp**: 
+   - LSB: phương pháp cơ bản, dung lượng tốt.
+   - DCT: thao tác ở miền tần số, bền hơn trước biến đổi.
+   - DWT: miền sóng con (wavelet), kỹ thuật nâng cao.
+5. **Generate Signature**: tùy chọn tạo chữ ký số để xác thực.
+6. **Hide Message**: bấm để xử lý và tải ảnh kết quả về.
 
-### EXTRACTING MESSAGES
+### TRÍCH XUẤT THÔNG ĐIỆP
 
-1. **Select File**: Choose image containing hidden message
-2. **Enter Password**: If message was encrypted
-3. **Choose Method**: Must match the hiding method used
-4. **Extract Message**: Click to reveal hidden content
-5. **Verify Signature**: Optional signature verification
+1. **Chọn file**: Cchọn ảnh chứa thông điệp đã giấu.
+2. **Nhập mật khẩu**: nếu thông điệp đã được mã hóa.
+3. **Chọn phương pháp**: phải khớp với phương pháp đã dùng lúc giấu.
+4. **Trích xuất**: bấm để hiển thị nội dung ẩn.
+5. **Xác thực chữ ký**: tuỳ chọn kiểm tra chữ ký số.
 
-### AUDIO STEGANOGRAPHY
+### STEGANOGRAPHY ÂM THANH
 
-1. **Supported Formats**: MP3, WAV, FLAC
-2. **Methods Available**:
-   - LSB: Hide in audio sample bits
-   - Phase: Modify frequency phase
-   - Echo: Use echo delays for encoding
-3. **Process**: Same as image steganography
+1. **Định dạng hỗ trợ**: MP3, WAV, FLAC
+2. **Phương pháp có sẵn**:
+   - LSB: giấu vào bit mẫu âm thanh.
+   - Phase: điều chỉnh pha tần số.
+   - Echo: dùng độ trễ echo để mã hoá.
+3. **Quy trình**: tương tự như steganography trên ảnh.
 
-### SETTINGS MANAGEMENT
+### QUẢN LÝ CÀI ĐẶT
 
-- **Export Settings**: Save encrypted configuration backup
-- **Import Settings**: Restore from backup file
-- **Theme Toggle**: Switch between light/dark modes
+- **Export Settings**: lưu bản sao cấu hình đã mã hóa.
+- **Import Settings**: phục hồi từ file sao lưu.
+- **Theme Toggle**: chuyển giữa giao diện sáng/tối.
 
-## DESKTOP APPLICATION
+## ỨNG DỤNG DESKTOP
 
-### INSTALLATION
+### CÀI ĐẶT
 
-1. Download `main.py` and required dependencies
-2. Install Python 3.7+ with PIL and numpy
-3. Run: `python main.py`
+1. Tải `main.py` và các thư viện phụ thuộc.
+2. Cài Python 3.7+ cùng PIL và numpy. (phiên bản python mới nhất cũng được)
+3. Chạy: `python main.py`
 
-### FEATURES
+### TÍNH NĂNG
 
-- **Recent Files**: Quick access to previously used images
-- **Settings Export/Import**: Backup your preferences
-- **Portable Mode**: Settings saved in application folder
-- **Professional Interface**: Clean, modern design
+- **Recent Files**: truy cập nhanh các ảnh đã dùng gần đây.
+- **Settings Export/Import**: sao lưu và phục hồi tuỳ chọn.
+- **Portable Mode**: lưu cấu hình trong thư mục ứng dụng (dễ mang theo).
+- **Giao diện chuyên nghiệp**: thiết kế gọn gàng, hiện đại.
 
-### HIDING PROCESS
+### QUY TRÌNH GIẤU
 
-1. **File Menu**: Open image or select from recent files
-2. **Hide Tab**: Enter message and optional password
-3. **Capacity Display**: Shows maximum message length
-4. **Character Counter**: Real-time message length tracking
-5. **Save Result**: Choose output location for stego image
+1. **File Menu**: mở ảnh hoặc chọn từ danh sách recent.
+2. **Hide Tab**: nhập thông điệp và mật khẩu (nếu cần).
+3. **Capacity Display**: hiển thị dung lượng tối đa có thể chứa.
+4. **Character Counter**: đếm ký tự theo thời gian thực.
+5. **Save Result**: chọn nơi lưu ảnh stego.
 
-### EXTRACTION PROCESS
+### QUY TRÌNH TRÍCH XUẤT
 
-1. **Extract Tab**: Select image with hidden message
-2. **Password**: Enter if message was encrypted
-3. **View Result**: Extracted message appears in text area
+1. **Extract Tab**: chọn ảnh chứa thông điệp.
+2. **Password**: nhập nếu thông điệp đã mã hóa.
+3. **View Result**: nội dung trích xuất hiển thị trong ô văn bản.
 
-## SUPPORTED FORMATS
+## ĐỊNH DẠNG HỖ TRỢ
 
-### IMAGES
-- **PNG**: Recommended for best quality
-- **BMP**: Uncompressed, reliable
-- **TIFF**: Professional format support
-- **JPEG**: Converted to PNG automatically
+### ẢNH
+- **PNG**: khuyến nghị để giữ chất lượng tốt nhất.
+- **BMP**: không nén, đáng tin cậy.
+- **TIFF**: định dạng chuyên nghiệp.
+- **JPEG**: sẽ tự động chuyển sang PNG trước khi giấu.
 
-### AUDIO
-- **WAV**: Uncompressed, best quality
-- **MP3**: Compressed format support
-- **FLAC**: Lossless compression
+### ÂM THANH
+- **WAV**: không nén, chất lượng tốt nhất.
+- **MP3**: hỗ trợ nén.
+- **FLAC**: nén không mất dữ liệu.
 
-## SECURITY FEATURES
+## TÍNH NĂNG BẢO MẬT
 
-### ENCRYPTION
-- **AES-256**: Military-grade encryption
-- **PBKDF2**: Key derivation function
-- **Salt**: Random salt for each encryption
+### MÃ HÓA
+- **AES-256**: mã hóa mức mạnh.
+- **PBKDF2**: hàm dẫn xuất khóa.
+- **Salt**: muối ngẫu nhiên cho mỗi lần mã hóa.
 
-### DIGITAL SIGNATURES
-- **RSA**: Public key cryptography
-- **Key Generation**: Automatic keypair creation
-- **Verification**: Authenticity checking
+### CHỮ KÝ SỐ
+- **RSA**: mật mã khóa công khai.
+- **Sinh khóa**: tự động tạo cặp khóa.
+- **Xác minh**: kiểm tra tính xác thực.
 
-### PRIVACY
-- **Client-Side**: All processing in browser
-- **No Upload**: Files never leave your device
-- **Portable**: Desktop app stores settings locally
+### QUYỀN RIÊNG TƯ
+- **Xử lý phía client**: toàn bộ xử lý diễn ra trong trình duyệt.
+- **Không upload**: file không rời khỏi thiết bị của bạn.
+- **Portable**: ứng dụng desktop lưu cấu hình cục bộ.
 
-## BEST PRACTICES
+## KHUYẾN NGHỊ TỐT NHẤT
 
-### MESSAGE HIDING
-1. Use PNG format for best results
-2. Choose strong passwords (12+ characters)
-3. Keep messages under 80% of capacity
-4. Use DCT/DWT for important messages
+### KHI GIẤU THÔNG ĐIỆP
+1. Dùng định dạng PNG để đạt kết quả tốt nhất.
+2. Chọn mật khẩu mạnh (từ 12 ký tự trở lên).
+3. Giữ thông điệp dưới 80% dung lượng tối đa.
+4. Dùng DCT/DWT cho thông điệp quan trọng.
 
-### SECURITY
-1. Always use encryption for sensitive data
-2. Generate digital signatures for authenticity
-3. Verify extracted messages carefully
-4. Store backup of original images
+### VỀ BẢO MẬT
+1. Luôn mã hóa khi chứa dữ liệu nhạy cảm.
+2. Tạo chữ ký số để xác thực nguồn.
+3. Kiểm tra kỹ nội dung đã trích xuất.
+4. Lưu bản sao ảnh gốc để sao lưu.
 
-### FILE MANAGEMENT
-1. Keep original images separate
-2. Use descriptive filenames
-3. Export settings regularly
-4. Clear recent files when needed
+### QUẢN LÝ FILE
+1. Giữ ảnh gốc riêng biệt.
+2. Dùng tên file mô tả.
+3. Thường xuyên xuất cài đặt (backup).
+4. Xóa recent files khi cần bảo mật.
 
-## TROUBLESHOOTING
+## KHẮC PHỤC SỰ CỐ
 
-### COMMON ISSUES
+### VẤN ĐỀ THƯỜNG GẶP
 
-**Message Too Long**
-- Check capacity display
-- Reduce message length
-- Use larger image
+**Thông điệp quá dài**
+- Kiểm tra hiển thị dung lượng.
+- Rút ngắn thông điệp.
+- Dùng ảnh có kích thước lớn hơn.
 
-**Extraction Failed**
-- Verify correct password (did you forget it already?)
-- Check steganography method
-- Ensure image wasn't modified
+**Trích xuất thất bại**
+- Đảm bảo mật khẩu đúng.
+- Kiểm tra phương pháp steganography sử dụng.
+- Đảm bảo ảnh chưa bị chỉnh sửa sau khi giấu.
 
-**File Not Supported**
-- Convert JPEG to PNG
-- Use uncompressed formats
-- Check file corruption
+**File không được hỗ trợ**
+- Chuyển JPEG thành PNG.
+- Dùng định dạng không nén.
+- Kiểm tra file có bị hỏng không.
 
-**Browser Issues**
-- Use modern browser
-- Enable JavaScript
-- Check file size limits
+**Vấn đề trình duyệt**
+- Dùng trình duyệt hiện đại.
+- Bật JavaScript.
+- Kiểm tra giới hạn kích thước file.
 
-### ERROR MESSAGES
+### THÔNG BÁO LỖI
 
 **"No hidden message found"**
-- Wrong extraction method
-- Image doesn't contain message
-- File was modified after hiding
+- Phương pháp trích xuất sai.
+- Ảnh không chứa thông điệp.
+- File bị chỉnh sửa sau khi giấu.
 
 **"Password required"**
-- Message was encrypted
-- Enter correct password
-- Check password case sensitivity
+- Tin nhắn đã được mã hóa
+- Nhập đúng mật khẩu
+- Kiểm tra mật khẩu có chữ cái hoa hay thường
 
 **"Invalid file format"**
-- Use supported formats only
-- Check file extension
-- Verify file integrity
+- Chỉ dùng định dạng được hỗ trợ.
+- Kiểm tra phần mở rộng file.
+- Xác minh tính toàn vẹn file.
 
-## TECHNICAL DETAILS
+## CHI TIẾT KỸ THUẬT
 
-### ALGORITHMS
-- **LSB**: Least Significant Bit replacement
-- **DCT**: Discrete Cosine Transform domain
-- **DWT**: Discrete Wavelet Transform domain
+### THUẬT TOÁN
+- **LSB**: thay thế Least Significant Bit (bit ít nghĩa nhất).
+- **DCT**: miền biến đổi cos rời rạc.
+- **DWT**: miền biến đổi wavelet.
 
-### CAPACITY CALCULATION
-- LSB: Width × Height × Channels ÷ 8 characters
-- DCT: Approximately 60% of LSB capacity
-- DWT: Approximately 40% of LSB capacity
+### TÍNH TOÁN DUNG LƯỢNG
+- LSB: ChiềuRộng × ChiềuCao × SốKênh ÷ 8 (ký tự).
+- DCT: xấp xỉ 60% dung lượng LSB.
+- DWT: xấp xỉ 40% dung lượng LSB.
 
-### PERFORMANCE
-- **Web**: Client-side processing, no server needed
-- **Desktop**: Native performance, larger file support
-- **Memory**: Efficient algorithms, minimal RAM usage
+### HIỆU NĂNG
+- **Web**: xử lý phía client, không cần server.
+- **Desktop**: hiệu năng native, hỗ trợ file lớn hơn.
+- **Memory**: huật toán hiệu quả, tiêu thụ RAM ở mức tối thiểu hợp lí.
 
-## SUPPORT
+## HỖ TRỢ
 
-For issues or questions:
-1. Check this user guide
-2. Review error messages carefully
-3. Verify file formats and sizes
-4. Test with simple messages first
+Nếu gặp vấn đề hoặc có câu hỏi:
+1. Đầu tiên đọc kỹ hướng dẫn này.
+2. Xem lại thông báo lỗi để biết chi tiết.
+3. Kiểm tra định dạng và kích thước file.
+4. Thử với thông điệp đơn giản trước.
 
-## VERSION HISTORY
-
-**v1.0** - Initial release
-- LSB, DCT, DWT steganography
-- Audio steganography support
-- Web and desktop applications
-- Professional UI design
-- Settings management
-- Digital signatures
+KHÔNG ĐƯỢC NỮA THÌ HỎI THẰNG CODE.

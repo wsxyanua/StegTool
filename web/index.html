@@ -15,73 +15,73 @@
         <div class="sidebar-content">
             <button class="sidebar-close" onclick="toggleSidebar()">&times;</button>
 
-            <h3>QUICK GUIDE</h3>
+            <h3>HƯỠNG DẪN NHANH</h3>
 
             <div class="guide-section">
-                <h4>HIDE MESSAGE</h4>
+                <h4>ẨN TIN NHẮN</h4>
                 <ol>
-                    <li>Select HIDE tab</li>
-                    <li>Upload any image format (JPG/PNG/GIF/WebP/SVG)</li>
-                    <li>Auto-convert to PNG/BMP/TIFF if needed</li>
-                    <li>Enter secret message</li>
-                    <li>Choose method: LSB/DCT/DWT</li>
-                    <li>Optional: Set password</li>
-                    <li>Click HIDE MESSAGE</li>
+                    <li>Chọn tab ẨN</li>
+                    <li>Tải lên bất kỳ định dạng hình ảnh nào (JPG/PNG/GIF/WebP/SVG)</li>
+                    <li>Tự động chuyển đổi sang PNG / BMP / TIFF nếu cần</li>
+                    <li>Nhập tin nhắn bí mật</li>
+                    <li>Chọn phương pháp: LSB / DCT / DWT</li>
+                    <li>Tùy chọn: Đặt mật khẩu</li>
+                    <li>Click ẨN TIN NHẮN</li>
                 </ol>
             </div>
 
             <div class="guide-section">
-                <h4>EXTRACT MESSAGE</h4>
+                <h4>TRÍCH XUẤT TIN NHẮN</h4>
                 <ol>
-                    <li>Select EXTRACT tab</li>
-                    <li>Upload image with hidden message</li>
-                    <li>Choose same method used for hiding</li>
-                    <li>Enter password if used</li>
-                    <li>Click EXTRACT MESSAGE</li>
+                    <li>Chọn tab TRÍCH XUẤT</li>
+                    <li>Tải lên hình ảnh có tin nhắn ẩn</li>
+                    <li>Chọn cùng một phương pháp được sử dụng để ẩn</li>
+                    <li>Nhập mật khẩu nếu được sử dụng</li>
+                    <li>Click TRÍCH XUẤT TIN NHẮN</li>
                 </ol>
             </div>
 
             <div class="guide-section">
-                <h4>FORMAT SUPPORT</h4>
+                <h4>HỖ TRỢ ĐỊNH DẠNG</h4>
                 <ul>
-                    <li><strong>Input:</strong> JPG, JPEG, PNG, GIF, WebP, SVG</li>
-                    <li><strong>Output:</strong> PNG, BMP, TIFF</li>
-                    <li><strong>Auto-convert:</strong> Unsupported formats → PNG</li>
+                    <li><strong>Đầu vào:</strong> JPG, JPEG, PNG, GIF, WebP, SVG</li>
+                    <li><strong>Đầu ra:</strong> PNG, BMP, TIFF</li>
+                    <li><strong>Tự động chuyển đổi:</strong> Định dạng không hỗ trợ → PNG</li>
                 </ul>
             </div>
 
             <div class="guide-section">
-                <h4>METHODS EXPLAINED</h4>
+                <h4>GIẢI THÍCH PHƯƠNG PHÁP</h4>
                 <ul>
-                    <li><strong>LSB:</strong> Standard method, good capacity</li>
-                    <li><strong>DCT:</strong> Frequency domain, more robust</li>
-                    <li><strong>DWT:</strong> Wavelet domain, advanced hiding</li>
+                    <li><strong>LSB:</strong> Phương pháp chuẩn, công suất tốt</li>
+                    <li><strong>DCT:</strong> Miền tần số, mạnh mẽ hơn</li>
+                    <li><strong>DWT:</strong> Miền Wavelet, ẩn nâng cao</li>
                 </ul>
             </div>
 
             <div class="guide-section">
                 <h4>TIPS</h4>
                 <ul>
-                    <li>PNG recommended for best results</li>
-                    <li>Larger images = longer messages</li>
-                    <li>Remember your passwords</li>
-                    <li>Keep original images safe</li>
+                    <li>Đề xuất PNG để có kết quả tốt nhất</li>
+                    <li>Hình ảnh lớn hơn = tin nhắn dài hơn</li>
+                    <li>Ghi nhớ mật khẩu của bạn</li>
+                    <li>Giữ an toàn hình ảnh gốc</li>
                 </ul>
             </div>
         </div>
     </div>
-
+    
     <!-- Sidebar Overlay -->
     <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
     <!-- Loading Overlay -->
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-spinner"></div>
-        <div id="loadingText" class="loading-text">PROCESSING</div>
+        <div id="loadingText" class="loading-text">ĐANG XỬ LÝ</div>
         <div class="loading-progress">
             <div id="loadingProgressBar" class="loading-progress-bar"></div>
         </div>
-        <div id="loadingSteps" class="loading-steps">Initializing...</div>
+        <div id="loadingSteps" class="loading-steps">Đang khởi tạo...</div>
     </div>
 
     <!-- Skeleton Loading -->
@@ -141,8 +141,8 @@
         <main>
             <div class="tabs">
                 <div class="subtab">
-                    <button class="tab-button active" onclick="showTab('encode', this)">HIDE</button>
-                    <button class="tab-button" onclick="showTab('decode', this)">EXTRACT</button>
+                    <button class="tab-button active" onclick="showTab('encode', this)">ẨN</button>
+                    <button class="tab-button" onclick="showTab('decode', this)">TRÍCH XUẤT</button>
                 </div>
             </div>
                 
@@ -151,11 +151,11 @@
             <div id="encode" class="tab-content active">
                 <div class="left-panel">
                     <div class="section file-section">
-                        <h3>FILE INPUT</h3>
+                        <h3>FILE ĐẦU VÀO</h3>
                         <div class="file-input-container">
                             <input type="file" id="encodeFile" accept="image/*" onchange="handleFileUpload(this, 'encode')">
                             <label for="encodeFile" class="file-input-label">
-                                SELECT FILE
+                                CHỌN FILE
                             </label>
                         </div>
                         <div id="encodePreview" class="file-preview"></div>
@@ -163,24 +163,24 @@
                         
                         <!-- Format Conversion Section -->
                         <div id="formatConversion" class="format-conversion" style="display: none;">
-                            <h4>FORMAT CONVERSION</h4>
+                            <h4>CHUYỂN ĐỔI ĐỊNH DẠNG</h4>
                             <div class="conversion-info">
                                 <span id="originalFormat"></span> → 
                                 <select id="targetFormat">
-                                    <option value="PNG">PNG (Recommended)</option>
+                                    <option value="PNG">PNG (Khuyến khích)</option>
                                     <option value="BMP">BMP</option>
                                     <option value="TIFF">TIFF</option>
                                 </select>
                             </div>
                             <div class="conversion-actions">
                                 <button id="convertButton" onclick="convertImageFormat()" class="convert-button">
-                                    CONVERT FORMAT
+                                    ĐỔI ĐỊNH DẠNG
                                 </button>
                                 <div id="conversionProgress" class="conversion-progress" style="display: none;">
                                     <div class="progress-bar">
                                         <div class="progress-fill"></div>
                                     </div>
-                                    <span>Converting...</span>
+                                    <span>ĐANG CHUYỂN ĐỔI...</span>
                                 </div>
                             </div>
                         </div>
@@ -189,8 +189,8 @@
 
                 <div class="right-panel">
                     <div class="section message-section">
-                        <h3>SECRET MESSAGE</h3>
-                        <textarea id="messageText" placeholder="Enter secret message..." rows="6"></textarea>
+                        <h3>TIN NHẮN BÍ MẬT</h3>
+                        <textarea id="messageText" placeholder="Nhập tin nhắn bí mật..." rows="6"></textarea>
                         <div class="char-count">
                             <span id="charCount">0</span> / <span id="maxChars">0</span>
                         </div>
@@ -203,32 +203,32 @@
                             <label class="method-tab"><input type="radio" name="stegoMethod" value="dwt"> DWT</label>
                         </div>
                         <button id="encodeButton" onclick="encodeMessage()" class="hide-button" disabled>
-                            HIDE
+                            ẨN
                         </button>
                     </div>
 
                     <div class="password-row">
                         <div class="password-container">
                             <input type="password" id="encodePassword" placeholder="Password (optional)">
-                            <button type="button" onclick="togglePasswordVisibility('encodePassword')" class="password-toggle">SHOW</button>
+                            <button type="button" onclick="togglePasswordVisibility('encodePassword')" class="password-toggle">HIỆN</button>
                         </div>
                         <div id="passwordStrength" class="strength-meter">
                             <div class="strength-bar"></div>
-                            <span class="strength-text">NO PASSWORD</span>
+                            <span class="strength-text">KHÔNG CÓ MẬT KHẨU</span>
                         </div>
                     </div>
 
                     <button id="encodeDownloadBtn" onclick="downloadEncodedImage()" class="secondary-button" style="display: none;" disabled>
-                        DOWNLOAD IMAGE
+                        TẢI ẢNH XUỐNG
                     </button>
                     <div id="encodeProgress" class="progress-container" style="display: none;">
                         <div class="progress-bar">
                             <div class="progress-fill"></div>
                         </div>
-                        <div class="progress-text">PROCESSING</div>
+                        <div class="progress-text">ĐANG XỬ LÝ</div>
                     </div>
                     <div id="encodeFakeLoading" class="fake-loading-container" style="display: none;">
-                        <div class="fake-loading-text">processing...</div>
+                        <div class="fake-loading-text">đang xử lý...</div>
                     </div>
                 </div>
             </div>
@@ -237,11 +237,11 @@
             <div id="decode" class="tab-content">
                 <div class="left-panel">
                     <div class="section file-section">
-                        <h3>FILE INPUT</h3>
+                        <h3>NHẬP FILE</h3>
                         <div class="file-input-container">
                             <input type="file" id="decodeFile" accept="image/*" onchange="handleFileUpload(this, 'decode')">
                             <label for="decodeFile" class="file-input-label">
-                                SELECT FILE
+                                CHỌN FILE
                             </label>
                         </div>
                         <div id="decodePreview" class="file-preview"></div>
@@ -250,11 +250,11 @@
 
                 <div class="right-panel">
                     <div class="section message-section">
-                        <h3>EXTRACTED MESSAGE</h3>
-                        <textarea id="resultText" placeholder="Message will appear here..." rows="6" readonly></textarea>
+                        <h3>THÔNG ĐIỆP ĐÃ TRÍCH XUẤT</h3>
+                        <textarea id="resultText" placeholder="Thông điệp sẽ hiển thị ở đây..." rows="6" readonly></textarea>
                         <div class="result-actions">
-                            <button onclick="copyToClipboard()" class="secondary-button">COPY</button>
-                            <button onclick="downloadText()" class="secondary-button">DOWNLOAD</button>
+                            <button onclick="copyToClipboard()" class="secondary-button">SAO CHÉP</button>
+                            <button onclick="downloadText()" class="secondary-button">TẢI XUỐNG</button>
                         </div>
                     </div>
 
@@ -265,13 +265,13 @@
                             <label class="method-tab"><input type="radio" name="decodeMethod" value="dwt"> DWT</label>
                         </div>
                         <button id="decodeButton" onclick="decodeMessage()" class="hide-button" disabled>
-                            EXTRACT
+                            TRÍCH XUẤT
                         </button>
                     </div>
 
                     <div class="password-row">
                         <div class="password-container">
-                            <input type="password" id="decodePassword" placeholder="Password (if protected)">
+                            <input type="password" id="decodePassword" placeholder="Mật khẩu (nếu được mã hóa/bảo vệ)">
                             <button type="button" onclick="togglePasswordVisibility('decodePassword')" class="password-toggle">SHOW</button>
                         </div>
                     </div>
@@ -280,10 +280,10 @@
                         <div class="progress-bar">
                             <div class="progress-fill"></div>
                         </div>
-                        <div class="progress-text">PROCESSING</div>
+                        <div class="progress-text">ĐANG XỬ LÝ</div>
                     </div>
                     <div id="decodeFakeLoading" class="fake-loading-container" style="display: none;">
-                        <div class="fake-loading-text">processing...</div>
+                        <div class="fake-loading-text">đang xử lý...</div>
                     </div>
                 </div>
             </div>
@@ -293,20 +293,20 @@
 
         <footer>
             <div class="status-bar">
-                <span id="statusText">Use at your own risk...</span>
+                <span id="statusText">Tự chịu trách nhiệm khi sử dụng nhé !...</span>
                 <span id="fileInfo"></span>
             </div>
 
             <div class="footer-links">
                 <div class="footer-section">
-                    <a href="https://github.com/hugle2012/steganography-tool#readme" target="_blank" rel="noopener">README</a>
-                    <a href="https://github.com/hugle2012/steganography-tool/blob/main/USERGUIDE.md" target="_blank" rel="noopener">USER GUIDE</a>
-                    <a href="https://github.com/hugle2012/steganography-tool/blob/main/SECURITY.md" target="_blank" rel="noopener">SECURITY</a>
+                    <a href="https://github.com/wsxyanua/StegTool/blob/main/README.md" target="_blank" rel="noopener">README</a>
+                    <a href="https://github.com/wsxyanua/StegTool/blob/main/USERGUIDE.md" target="_blank" rel="noopener">USER GUIDE</a>
+                    <a href="https://github.com/wsxyanua/StegTool/blob/main/SECURITY.md" target="_blank" rel="noopener">SECURITY</a>
                 </div>
                 <div class="footer-trademark">
                     <span>&copy; 2025 STEGANOGRAPHY</span>
-                    <span>PROFESSIONAL PRIVACY(or not) TOOLS</span>
-                    <span>Tool by xyanua.</span>
+                    <span>Công cụ bảo mật quyền riêng tư (chuyên nghiệp… hoặc không 😅)</span>
+                    <span>Tool được viết bởi xyanua.</span>
                 </div>
             </div>
         </footer>
