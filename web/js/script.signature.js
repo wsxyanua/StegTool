@@ -1,4 +1,4 @@
-// Digital signature helpers
+// Tạo/ ký/ xác minh chữ ký số ECDSA P-256 (DigitalSignature). Expose lớp qua window.
 
 class DigitalSignature {
     static async generateKeypair() {

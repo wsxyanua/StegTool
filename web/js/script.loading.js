@@ -1,4 +1,5 @@
-// Loading and skeleton managers
+// Quản lý overlay loading chuyên nghiệp (LoadingManager) và skeleton UI (SkeletonLoader)
+// hàm show/hide skeleton và bind ra window.
 
 class LoadingManager {
     constructor() {

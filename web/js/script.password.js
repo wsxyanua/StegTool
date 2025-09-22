@@ -1,4 +1,4 @@
-// Password-related DOM hookups
+// Lắng nghe input mật khẩu để cập nhật thanh độ mạnh; auto ẩn skeleton sớm khi DOM ready.
 
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {

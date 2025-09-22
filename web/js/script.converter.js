@@ -1,4 +1,8 @@
-// Format conversion utilities and UI
+// Tiện ích chuyển định dạng (FormatConverter),
+// hiển thị/ẩn UI chuyển đổi,
+// luồng convert blob→ImageData→preview, 
+// cập nhật state sau chuyển đổi. 
+// Expose hàm dùng bởi nút “Đổi định dạng”.
 
 class FormatConverter {
     static isSupportedFormat(mimeType) {

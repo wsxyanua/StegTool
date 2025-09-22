@@ -1,4 +1,5 @@
-// Drag & drop and validators
+// Kéo/thả file nâng cao, indicator loại file, validator loại file
+// và bind sự kiện cho tab phương pháp.
 
 function initializeDragAndDrop() {
     const dropZones = document.querySelectorAll('.file-input-label');

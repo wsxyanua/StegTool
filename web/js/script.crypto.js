@@ -1,4 +1,5 @@
-// Crypto and password strength utilities
+// Mã hóa/giải mã (CryptoEngine với AES-GCM + PBKDF2)
+// phân tích độ mạnh mật khẩu (PasswordStrength). Expose lớp qua window.
 
 class CryptoEngine {
     static async encrypt(message, password) {

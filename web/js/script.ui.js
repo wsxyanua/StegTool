@@ -1,4 +1,5 @@
-// UI helpers, tabs, status, toast
+// Tiện ích UI chung: toggle sidebar, chuyển tab, đồng bộ preview/capacity, status/progress bar, toast, show/hide password, tính capacity.
+// Expose các hàm dùng trong HTML.
 
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');

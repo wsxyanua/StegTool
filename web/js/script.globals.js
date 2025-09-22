@@ -1,4 +1,6 @@
-// Global state and ImageConverter bootstrap
+// Khai báo trạng thái toàn cục (file hiện tại, ảnh, cờ chuyển đổi)
+// khởi tạo ImageConverter và cơ chế thử nhiều lần
+// expose hàm/biến cần dùng qua window.
 
 // STEGANOGRAPHY v1.0
 

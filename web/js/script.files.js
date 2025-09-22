@@ -1,4 +1,8 @@
-// File handling, upload, encode/decode, settings, downloads
+// Luồng xử lý chính: upload file/ảnh
+// reset state
+// encode/decode message
+// xuất/nhập settings, tải ảnh đã mã hóa, copy/download text. 
+// Expose các hàm được gọi từ HTML.
 
 function resetUploadState() {
     hideFormatConversion();

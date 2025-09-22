@@ -1,4 +1,4 @@
-// Wire DOMContentLoaded bootstraps formerly in script.js
+// Bootstrap DOMContentLoaded: khởi động ImageConverter, log trạng thái, chạy chu trình skeleton và toast chào mừng, khôi phục theme.
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize ImageConverter attempts and status log
